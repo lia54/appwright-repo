@@ -14,3 +14,7 @@
     "commander": "^14.0.0"
   }
 }
+"bin": {
+  "qgjob": "./my-cli.js" 
+}
+

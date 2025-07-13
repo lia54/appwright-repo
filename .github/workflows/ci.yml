@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: node --version 
       - run: npm --version 
-      - run: npm install -g qgjob
+      - run: sudo npm install -g . --force
       - run: qgjob submit --org-id=qualgent --app-version-id=xyz123 --test=tests/onboarding.spec.js

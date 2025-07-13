@@ -1,20 +1,19 @@
 {
-  "name": "appwright-cli",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
+    "name": "my-cli-app",
+    "version": "1.0.0",
+    "description": "A simple custom CLI",
+    "main": "my-cli.js",
+    "bin": {
+    "qgjob": "./my-cli.js"
+    },
+    "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "commander": "^14.0.0"
-  }
-}
-"bin": {
-  "qgjob": "./my-cli.js" 
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+    "commander": "^9.0.0" 
+    }
 }
 

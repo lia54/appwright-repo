@@ -6,8 +6,6 @@
 // The worker is designed to handle different targets like emulator, device, web, and browserstack
 // It uses the IORedis library for Redis operations and the child_process module to execute commands
 //'use strict';
-let myVariable = "hello,world";
-myVariable.split(','); // Works
 const Redis = require('ioredis');
 const redis = new Redis();
 const { exec } = require('child_process');
@@ -57,7 +55,7 @@ async function findAndProcessJob() {
                 if (job.target === 'emulator')  {
                     console.log(`Worker ${WORKER_ID} found job ${jobId} for target ${job.target}`);
                     //command = `adb -s emulator-5554 shell am start -n com.example.app/.MainActivity`; // Example command for emulator
-                    command = 'npx appwright test --project android'
+                    command = 'npx appwright test --project ios'
                 } else if (job.target === 'device') {
                     console.log(`Worker ${WORKER_ID} found job ${jobId} for target ${job.target}`);
                     command = 'npx appwright test --project android-pixel-4'

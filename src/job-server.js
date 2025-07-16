@@ -69,7 +69,7 @@ app.post('/jobs', async (req, res) => {
     // 3. Get the priority value from the Map, defaulting to 'normal' if not found
     const priorityValue = priorityMap.get(priority) !== undefined ? priorityMap.get(priority) : priorityMap.get('normal');
     // 4. Validate the target
-    const validTargets = ['emulator', 'device', 'web', 'browserstack'];
+    const validTargets = ['emulator', 'device', 'browserstack'];
     if (!validTargets.includes(target)) {
         return res.status(400).send(`Invalid target. Valid targets are: ${validTargets.join(', ')}`);
     }

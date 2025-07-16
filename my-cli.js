@@ -199,3 +199,5 @@ program
     });
 
 program.parse(process.argv);
+// If no command is provided, display the help information
+// This allows users to see the available commands and options when they run the CLI without any arguments

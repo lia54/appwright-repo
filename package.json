@@ -7,8 +7,9 @@
         "qgjob": "./my-cli.js"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "concurrently \"node ./src/job-server.js\" \"node ./src/worker.js\""
+        "echo": "echo \"Error: no test specified\" && exit 1",
+        "start": "concurrently \"node ./src/job-server.js\" \"node ./src/worker.js\"",
+        "test": "jest"
     },
     "keywords": [],
     "author": "",
@@ -24,6 +25,7 @@
         "uuid": "^11.1.0"
     },
     "devDependencies": {
+        "@types/jest": "^30.0.0",
         "appwright": "^0.1.45",
         "concurrently": "^9.2.0"
     }

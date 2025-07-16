@@ -51,7 +51,7 @@ async function findAndProcessJob() {
 
     for (const jobId of jobIds) {
         const job = await redis.hgetall(`job:${jobId}`);
-
+        supportedTargets = "emulator,device,browserstack"
         // Check if job matches supported device targets
         if (supportedTargets.includes(job.target) && job.status === 'queued') {
             // Atomically acquire job lock and update status

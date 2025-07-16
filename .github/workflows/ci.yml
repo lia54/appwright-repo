@@ -8,19 +8,3 @@ jobs:
       - run: | 
           node --version 
           npm --version 
-          sudo npm install -g . --force
-          sudo apt install redis-server
-          sudo service redis-server start
-          sudo npm start & # Start the server in the background
-          qgjob submit --org-id=qualgent --app-version-id=xyz123 --test=tests/onboarding.spec.js
-          qgjob status --job-id=12345
-  # To run server in a different environment for testing uncomment the code below 
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - run: echo "Job run-server running"
-  #     - run: node --version
-  #     - run: npm --version
-  #     - run: sudo apt install redis-server
-  #     - run: sudo service redis-server start
-  #     - run: sudo npm start

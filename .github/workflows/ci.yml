@@ -8,8 +8,8 @@ jobs:
       - run: node --version 
       - run: npm --version 
       - run: sudo npm install -g . --force
-          #sudo apt install redis-server
-          #sudo service redis-server start
+      - run: sudo apt install redis-server
+      - run: sudo service redis-server start
           #sudo npm start & # Start the server in the background
           #qgjob submit --org-id=qualgent --app-version-id=xyz123 --test=tests/onboarding.spec.js
           #qgjob status --job-id=12345

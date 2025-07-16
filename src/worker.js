@@ -33,7 +33,18 @@ async function findAndProcessJob() {
 
     // 1. Get available device targets for this worker
     const workerDetails = await redis.hgetall(`worker:${WORKER_ID}`);
-    const supportedTargets = workerDetails.deviceTargets.toString().split(','); 
+    if (!workerDetails || !workerDetails.deviceTargets) {
+        console.error(`Worker ${WORKER_ID} has no registered device targets.`);
+        isAvailable = true;
+        return;
+    }
+    else if (typeof(workerDetails.deviceTargets) === 'string') {
+        const supportedTargets = workerDetails.deviceTargets.split(',');
+        //console.log(`Worker ${WORKER_ID} supports targets: ${supportedTargets}`);
+    }
+    else{
+        supportedTargets = "emulator,device,browserstack"
+    }
 
     // 2. Fetch jobs from priority queue (sorted set)
     const jobIds = await redis.zrange('jobs:priority', 0, -1); // Get all job IDs in order of priority

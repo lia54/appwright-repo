@@ -6,6 +6,8 @@
 // The worker is designed to handle different targets like emulator, device, web, and browserstack
 // It uses the IORedis library for Redis operations and the child_process module to execute commands
 //'use strict';
+let myVariable = "hello,world";
+myVariable.split(','); // Works
 const Redis = require('ioredis');
 const redis = new Redis();
 const { exec } = require('child_process');
@@ -17,7 +19,7 @@ let currentJob = null;
 async function registerWorker() {
     // Register worker and its capabilities (e.g., supported device targets)
     await redis.sadd('availableWorkers', WORKER_ID); // Add to a Set of available workers
-    await redis.hmset(`worker:${WORKER_ID}`, 'status', 'idle', 'deviceTargets', 'emulator'); // Example capabilities
+    await redis.hmset(`worker:${WORKER_ID}`, 'status', 'idle', 'deviceTargets', 'emulator,device,browserstack'); // Example capabilities
     console.log(`Worker ${WORKER_ID} registered and idle`);
 }
 

@@ -33,7 +33,7 @@ async function findAndProcessJob() {
 
     // 1. Get available device targets for this worker
     const workerDetails = await redis.hgetall(`worker:${WORKER_ID}`);
-    const supportedTargets = workerDetails.deviceTargets.split(','); 
+    const supportedTargets = workerDetails.deviceTargets.toString().split(','); 
 
     // 2. Fetch jobs from priority queue (sorted set)
     const jobIds = await redis.zrange('jobs:priority', 0, -1); // Get all job IDs in order of priority

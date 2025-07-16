@@ -9,6 +9,8 @@
 const Redis = require('ioredis');
 const redis = new Redis();
 const { exec } = require('child_process');
+// app.use(express.json()); // Enable JSON body parsing for requests
+app.use(express.json());
 
 const WORKER_ID = process.env.WORKER_ID || 'worker-1'; // Unique ID for each worker
 let isAvailable = true; // Simulates worker availability

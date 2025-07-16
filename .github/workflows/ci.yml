@@ -12,6 +12,7 @@ jobs:
           sudo apt install redis-server
           sudo service redis-server start
           sudo npm start & # Start the server in the background
+          sleep 10 # Wait for the server to start
           qgjob submit --org-id=qualgent --app-version-id=xyz123 --test=tests/onboarding.spec.js
   # qgjob status --job-id=12345
   # To run server in a different environment for testing uncomment the code below 
